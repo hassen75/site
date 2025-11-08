@@ -161,10 +161,11 @@ section {
 
 .header-inner {
     display: flex;
-    justify-content: space-between;
+    /* NOUVEAU: Centrer la nav */
+    justify-content: space-between; 
     align-items: center;
     flex-wrap: wrap;
-    /* AJOUT: Hauteur minimale pour soutenir le logo */
+    /* Hauteur minimale pour soutenir le logo */
     min-height: 80px; 
 }
 
@@ -172,7 +173,8 @@ section {
     display: flex;
     align-items: center;
     width: auto;
-    /* AJOUT: Padding pour éviter que le logo touche les bords */
+    /* NOUVEAU: Pousser le logo à gauche sur desktop */
+    margin-right: 2rem; 
     padding: 5px 0; 
 }
 
@@ -182,12 +184,14 @@ section {
     height: 100px !important; 
     display: block;
     object-fit: contain; 
-    padding: 0; /* Suppression du padding car la taille est gérée par width/height */
+    padding: 0; 
 }
 
 .controls {
     display: flex;
-    gap: 10px
+    gap: 10px;
+    /* NOUVEAU: Pousser les controls à droite (seulement visible sur mobile) */
+    margin-left: auto;
 }
 
 #theme-toggle, #burger {
@@ -587,12 +591,27 @@ footer p {
         display: none
     }
 
+    /* NOUVEAU: Centrer la nav sur desktop */
+    .header-inner {
+        flex-wrap: nowrap;
+        /* NOUVEAU: Centrer les éléments */
+        justify-content: center;
+        gap: 3rem; 
+        min-height: 80px; 
+    }
+    
     /* Rétablir le header en mode sticky pour les sections après le Hero */
     .site-header {
         position: sticky !important; 
         background-color: #fff !important; 
         color: var(--color-text-dark) !important;
         border-bottom: 1px solid #ddd;
+    }
+
+    /* Logo à gauche */
+    .brand-left {
+        /* Pousser le logo à l'extrême gauche */
+        margin-right: auto; 
     }
 
     /* Le logo et les liens redeviennent sombres sur le fond clair du header */
@@ -604,15 +623,6 @@ footer p {
         color: var(--color-text-dark) !important;
     }
     
-    .header-inner {
-        flex-wrap: nowrap;
-        justify-content: space-between
-    }
-
-    .brand-left {
-        margin-right: 2rem
-    }
-
     .tagline {
         flex-basis: auto;
         margin: 0 2rem;
@@ -621,7 +631,7 @@ footer p {
         display: block !important; 
     }
 
-    /* Styles pour la navigation desktop intégrée */
+    /* Styles pour la navigation desktop centrée */
     .main-nav {
         position: static;
         display: block !important; 
@@ -629,7 +639,9 @@ footer p {
         height: auto;
         padding-top: 0;
         background: transparent !important;
-        margin-left: auto; /* Pousser à droite */
+        /* Laisser les marges gérées par le justify-content: center du parent */
+        margin-left: 0; 
+        margin-right: auto;
     }
 
         .main-nav ul {
