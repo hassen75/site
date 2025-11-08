@@ -2,13 +2,13 @@
    Variables & Reset de base
    =========================== */
 :root {
-    /* --- COULEURS APRILFORD (Pour le Hero et les accents) --- */
+    /* --- COULEURS APRILFORD (HÉRO ET ACCENTS) --- */
     --color-primary-blue: #007bff; 
     --color-secondary-pink: #ff007b; 
     --color-gradient-start: #4A00E0; /* Violet foncé */
     --color-gradient-end: #FF007B; /* Rose vif */
     
-    /* --- VOS COULEURS EXISTANTES (Pour le Light/Dark Mode) --- */
+    /* --- COULEURS THÈMES EXISTANTS --- */
     --color-dark: #121212;
     --color-light-background: #f4f4f9;
     --color-light-text: #1c1c1c;
@@ -21,14 +21,14 @@
     --color-text-dark: #333333; 
     --color-background-light: #f8f9fa; 
 
-    /* Typographie (Combiné Poppins et Montserrat) */
+    /* Typographie */
     --font-heading: 'Poppins', sans-serif;
     --font-body: 'Montserrat', sans-serif;
     --font-weight-light: 300;
     --font-weight-regular: 400;
     --font-weight-semibold: 600; 
     --font-weight-bold: 700;
-    --font-weight-extra-bold: 800; /* Nouveau pour le Hero */
+    --font-weight-extra-bold: 800; 
 }
 
 * {
@@ -49,19 +49,141 @@ body {
     transition: background-color .3s,color .3s
 }
 
-/* ... (Vos utilitaires et préférences système restent ici) ... */
+/* Accessibilité utilitaires */
+.skip-link {
+    position: absolute;
+    left: -9999px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden
+}
+
+    .skip-link:focus {
+        position: static;
+        width: auto;
+        height: auto;
+        padding: .5rem 1rem;
+        background: var(--color-accent);
+        color: var(--color-dark)
+    }
+
+.sr-only {
+    position: absolute !important;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    clip: rect(1px,1px,1px,1px);
+    white-space: nowrap
+}
+
+.honeypot {
+    position: absolute;
+    left: -9999px
+}
+
+/* Préférences système */
+@media (prefers-color-scheme: light) {
+    body:not(.dark-mode):not(.light-mode) {
+        background: var(--color-light-background);
+        color: var(--color-light-text)
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important
+    }
+}
 
 /* ===========================
-   Thèmes (Dark/Light)
+   Thèmes (Dark/Light) - Styles conservés
    =========================== */
-/* J'ai retiré le dark-mode du body global pour qu'il soit contrôlé par votre JS */
-
 .dark-mode {
     background-color: var(--color-dark);
     color: #f0f0f0
 }
-/* ... (Le reste de vos styles .dark-mode et .light-mode restent ici) ... */
 
+    .dark-mode a {
+        color: var(--color-accent)
+    }
+
+    .dark-mode .site-header, .dark-mode .main-nav {
+        background-color: #1f1f1f;
+        border-bottom: 1px solid #333
+    }
+
+    .dark-mode .project-card {
+        background: linear-gradient(180deg,rgba(255,255,255,.03),rgba(0,0,0,.2));
+        box-shadow: 0 4px 10px rgba(0,0,0,.3)
+    }
+
+        .dark-mode .project-card:hover {
+            box-shadow: 0 10px 20px rgba(255,165,0,.2)
+        }
+
+    .dark-mode .filter-btn {
+        background-color: #2a2a2a;
+        color: #f0f0f0;
+        border: 1px solid #3a3a3a
+    }
+
+        .dark-mode .filter-btn.active {
+            background-color: var(--color-accent);
+            color: var(--color-dark)
+        }
+
+    .dark-mode footer {
+        border-top: 1px solid #333
+    }
+
+.light-mode {
+    background-color: var(--color-light-background);
+    color: var(--color-light-text)
+}
+
+    .light-mode a {
+        color: var(--color-primary)
+    }
+
+    .light-mode .site-header, .light-mode .main-nav {
+        background-color: #fff;
+        border-bottom: 1px solid #ddd
+    }
+
+    .light-mode .project-card {
+        background: #ffffff;
+        box-shadow: 0 4px 10px rgba(0,0,0,.05)
+    }
+
+        .light-mode .project-card:hover {
+            box-shadow: 0 10px 20px rgba(0,119,182,.1)
+        }
+
+    .light-mode .filter-btn {
+        background-color: #eee;
+        color: var(--color-light-text);
+        border: 1px solid #ccc
+    }
+
+        .light-mode .filter-btn.active {
+            background-color: var(--color-primary);
+            color: #fff
+        }
+
+    .light-mode footer {
+        border-top: 1px solid #e5e5e5
+    }
+
+.dark-mode picture > img {
+    content: url("images/logo-hm-dark.png")
+}
+
+.light-mode picture > img {
+    content: url("images/logo-hm-light.png")
+}
 
 /* ===========================
    Layout & Typo
@@ -72,19 +194,17 @@ h1, h2, h3 {
     margin-top: 0
 }
 
+/* Styles H2 généraux (utilisés par Services, Portfolio, etc.) */
 h2 {
-    font-size: 2.5rem;
-    text-align: center;
-    margin-bottom: 2rem;
-    padding-top: 4rem; /* Ancien style pour padding-top */
-    
-    /* NOUVEAU STYLE APRILFORD H2 */
     font-size: 36px;
+    font-family: var(--font-heading);
     font-weight: var(--font-weight-extra-bold);
     text-transform: uppercase;
     letter-spacing: 1.5px;
+    text-align: center;
+    margin-bottom: 40px;
+    padding-top: 0; 
     position: relative;
-    padding-top: 0; /* Supprimer l'ancien padding pour centrer le titre */
 }
 
 /* Soulignement dégradé sous les titres H2 */
@@ -105,39 +225,114 @@ main h2::after {
 }
 
 section {
-    padding: 2rem 0
+    padding: 4rem 0; /* Augmenté le padding pour plus d'espace */
 }
-
 
 /* ===========================
    Header & Navigation (Adaptation Hero)
    =========================== */
 .site-header {
-    padding: 1rem 0;
-    /* Remplacement de position: sticky par position: absolute pour le Hero */
-    position: absolute; 
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-    background: transparent; /* ESSENTIEL sur le Hero */
+    /* Styles FLOTTANTS pour le Hero */
+    position: absolute !important; 
+    top: 0 !important;
+    width: 100% !important;
+    z-index: 1000 !important;
+    background: transparent !important; 
+    padding: 1rem 0 !important;
+    transition: background-color .3s;
 }
 
-/* Texte, logo et boutons en blanc sur le fond sombre du Hero */
-#hero-aprilford .site-header * {
+/* Force les éléments du header à être blancs sur le Hero */
+#hero-aprilford .site-header .header-inner * {
     color: var(--color-text-light) !important;
 }
 
-/* Le logo doit être blanc pour contraster */
+/* Force le logo à être blanc sur le Hero */
 #hero-aprilford .logo-hm {
-    filter: brightness(0) invert(1);
+    filter: brightness(0) invert(1) !important; 
 }
 
-/* Masquer la tagline qui est redondante */
+/* Masquer la tagline */
 .tagline {
-    display: none; /* Le nouveau Hero prend ce rôle */
+    display: none; 
 }
-/* ... (Le reste des styles de navigation reste ici) ... */
 
+.header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap
+}
+
+.brand-left {
+    display: flex;
+    align-items: center;
+    width: auto
+}
+
+.logo-hm {
+    width: 55px;
+    height: 55px;
+    display: block
+}
+
+.controls {
+    display: flex;
+    gap: 10px
+}
+
+#theme-toggle, #burger {
+    background: none;
+    border: none;
+    color: inherit;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color .2s
+}
+
+    #theme-toggle:hover, #burger:hover {
+        background: rgba(127,127,127,.12)
+    }
+
+.main-nav {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+    padding-top: 60px;
+    text-align: center
+}
+
+    .main-nav.open {
+        display: block;
+        background: rgba(0,0,0,.8);
+        backdrop-filter: blur(3px)
+    }
+
+    .main-nav ul {
+        list-style: none;
+        padding: 0;
+        margin: 0
+    }
+
+    .main-nav li a {
+        display: block;
+        padding: 1rem;
+        font-size: 1.5rem;
+        text-decoration: none;
+        color: inherit;
+        transition: background-color .2s
+    }
+
+        .main-nav li a:hover {
+            background-color: var(--color-accent);
+            color: var(--color-dark)
+        }
 
 /* ===========================
    SECTION HERO APRILFORD
@@ -212,20 +407,32 @@ section {
     transform: translateY(-3px);
 }
 
-
 /* ===========================
    Boutons génériques (Mise à jour pour AprilFord)
    =========================== */
+button {
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 1px solid #3a3a3a;
+    background: transparent;
+    color: inherit;
+    cursor: pointer
+}
+
+    button:hover {
+        background: rgba(127,127,127,.12)
+    }
+
 /* Remplace le style .btn initial */
 .btn {
     display: inline-block;
-    padding: 12px 25px; /* Ajusté pour être plus petit que le bouton Hero */
+    padding: 12px 25px;
     margin-top: 1rem;
     /* Bouton dégradé pour les sections secondaires */
     background-image: linear-gradient(to right, var(--color-primary-blue), var(--color-secondary-pink));
     color: var(--color-text-light) !important;
     text-decoration: none;
-    border-radius: 50px; /* Plus arrondi */
+    border-radius: 50px; 
     font-weight: var(--font-weight-bold);
     transition: opacity .2s, transform .2s;
     border: none;
@@ -241,24 +448,29 @@ section {
         transform: translateY(1px);
     }
 
-/* Correction du bouton dans le thème sombre (si .btn est utilisé ailleurs) */
+/* Correction du bouton dans le thème sombre */
 .dark-mode .btn {
-    /* Le bouton dégradé reste visible même en dark mode */
     background-image: linear-gradient(to right, var(--color-primary-blue), var(--color-secondary-pink));
     color: var(--color-text-light) !important;
 }
 
-
 /* ===========================
    Sections (Mise à jour pour AprilFord)
    =========================== */
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    text-align: center
+}
+
 /* --- SERVICES LIST (votre .services-list) --- */
 .services-list {
     list-style: none;
     padding: 0;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px; /* Ajouté un gap plus grand */
+    gap: 20px; 
     text-align: center;
     margin-top: 2rem;
 }
@@ -269,7 +481,7 @@ section {
     border-radius: 8px;
     font-weight: var(--font-weight-semibold);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-    border-top: 4px solid var(--color-primary-blue); /* Ligne d'accent bleue */
+    border-top: 4px solid var(--color-primary-blue); 
     transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -279,59 +491,104 @@ section {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
+/* Filtres */
+.filters {
+    text-align: center;
+    margin-bottom: 2rem
+}
+
+.filter-btn {
+    padding: .5rem 1rem;
+    margin: 0 .5rem .5rem 0;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: var(--font-body);
+    transition: background-color .2s,color .2s
+}
+
+/* Portfolio */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(240px,1fr));
+    gap: 1.5rem;
+    align-items: stretch
+}
+
 /* --- CARTES PROJET (votre .project-card) --- */
 .project-card {
-    /* Les styles AprilFord sont déjà appliqués ici */
     background-color: var(--color-text-light);
-    border-radius: 8px; /* Réduit à 8px pour la cohérence */
+    border-radius: 8px; 
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between
 }
 
-.project-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+    .project-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+    }
+    
+    .project-card img {
+        width: 100%;
+        height: auto;
+        border-radius: 5px;
+        margin-bottom: 1rem
+    }
+
+    .project-card h3 {
+        font-size: 1.25rem;
+        font-weight: var(--font-weight-bold);
+    }
+
+    .project-card a {
+        margin-top: auto;
+        display: inline-block
+    }
+
+/* Galerie Graphisme */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(180px,1fr));
+    gap: 1rem;
+    justify-content: center
 }
 
-/* ... (Le reste de vos styles de formulaire, footer, et media queries restent ici) ... */
-
-
-/* ===========================
-   Responsive (Correction)
-   =========================== */
-@media (max-width: 768px) {
-    /* Retours aux styles existants si besoin, mais le Hero s'adapte bien */
-    
-    .site-header {
-        position: relative; /* Repositionner le header sur mobile */
-        background: var(--color-dark); /* Rendre la barre nav visible sur tous les fonds */
-        padding-top: 1rem;
-    }
-    
-    /* Le logo revient à sa couleur normale car le fond est sombre */
-    .site-header .logo-hm {
-        filter: none; 
-    }
-    
-    /* Afficher le menu burger */
-    #burger {
-        display: block;
-    }
-    
-    /* Cacher la navigation pour l'affichage mobile, contrôlée par votre JS */
-    .main-nav {
-        display: none;
-    }
-    
-    .header-inner {
-        flex-wrap: wrap;
+    .gallery-grid img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+        border-radius: 5px;
+        transition: transform .3s
     }
 
-    .tagline {
-        display: none; /* Toujours masqué sur mobile */
-    }
-    
-    .main-nav.open {
-        display: block;
-    }
+        .gallery-grid img:hover {
+            transform: scale(1.05)
+        }
+
+/* Formulaire */
+#contact-form {
+    max-width: 600px;
+    margin: 0 auto 2rem;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-text-light); /* Fond blanc pour le formulaire */
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
 }
+
+.form-row {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem
+}
+
+#contact-form input, #contact-form textarea {
+    flex-grow: 1;
+    padding: .75rem;
+    border: 1px solid #ddd; /* Plus clair que votre ancien #555 */
+    border-radius: 5px;
+    background-color: var(--color-text-light);
