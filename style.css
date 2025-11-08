@@ -5,8 +5,8 @@
     /* --- COULEURS APRILFORD (HÉRO ET ACCENTS) --- */
     --color-primary-blue: #007bff; 
     --color-secondary-pink: #ff007b; 
-    --color-gradient-start: #4A00E0; /* Violet foncé */
-    --color-gradient-end: #FF007B; /* Rose vif */
+    --color-gradient-start: #4A00E0; 
+    --color-gradient-end: #FF007B; 
     
     /* --- COULEURS THÈME CLAIR SIMPLIFIÉ --- */
     --color-dark: #121212; 
@@ -163,36 +163,28 @@ section {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap
-}
-
-.brand-left {
-    display: flex;
-    align-items: center;
-    width: auto
-}
-
-
-/* CORRECTION DU LOGO : Augmentation de la taille sans pousser la nav */
-.logo-hm {
-    width: 100px !important; /* On l'agrandit encore plus */
-    height: 100px !important; /* Et la hauteur */
-    display: block;
-    object-fit: contain; /* S'assure que le contenu du logo (HM) ne soit pas déformé */
-    padding: 0; /* Supprime le padding qui ajoutait de l'espace blanc */
+    flex-wrap: wrap;
+    /* AJOUT: Hauteur minimale pour soutenir le logo */
+    min-height: 80px; 
 }
 
 .brand-left {
     display: flex;
     align-items: center;
     width: auto;
-    
-    /* Retire le fond blanc du conteneur pour ne pas avoir de cadre */
-    background-color: transparent !important; 
-    
-    /* Ajoute un padding au conteneur lui-même si le logo dépasse un peu */
+    /* AJOUT: Padding pour éviter que le logo touche les bords */
     padding: 5px 0; 
 }
+
+/* CORRECTION DU LOGO : Taille agrandie à 100px */
+.logo-hm {
+    width: 100px !important; 
+    height: 100px !important; 
+    display: block;
+    object-fit: contain; 
+    padding: 0; /* Suppression du padding car la taille est gérée par width/height */
+}
+
 .controls {
     display: flex;
     gap: 10px
@@ -301,7 +293,7 @@ section {
 
 .subtitle-hero {
     font-size: 18px;
-    font-weight: var(--font-weight-regular); /* Poids adapté pour le pitch */
+    font-weight: var(--font-weight-regular); 
     line-height: 1.5;
     max-width: 650px;
     margin-left: auto;
@@ -583,7 +575,7 @@ footer {
 }
 
 footer p {
-    margin: 0; /* Suppression des marges du p général */
+    margin: 0; 
     text-align: center;
 }
 
@@ -717,5 +709,3 @@ footer p {
         order: 1; 
     }
 }
-
-
