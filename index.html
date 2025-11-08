@@ -6,7 +6,6 @@
     <title>Hassen Mokdad — Portfolio</title>
     <meta name="description" content="Développeur web et graphiste à Paris — sites performants, design et technologie.">
 
-    <!-- SEO & Partage -->
     <link rel="canonical" href="https://exemple.com/">
     <meta property="og:title" content="Hassen Mokdad — Portfolio">
     <meta property="og:description" content="Sites performants et élégants alliant design et technologie.">
@@ -15,21 +14,17 @@
     <meta property="og:image" content="images/cover.jpg">
     <meta name="twitter:card" content="summary_large_image">
 
-    <!-- Performance polices -->
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Poppins:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Poppins:wght@600;800&display=swap" rel="stylesheet">
 
     <link rel="icon" href="images/favicon.png" type="image/png">
     <link rel="stylesheet" href="style.css">
 
-    <!-- AOS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-    <!-- EmailJS -->
     <script src="https://cdn.emailjs.com/sdk/2.3.2/email.min.js"></script>
 
-    <!-- Données structurées (modifie ton url/logo si besoin) -->
     <script type="application/ld+json">
         {
           "@context": "https://schema.org",
@@ -50,9 +45,7 @@
         <div class="container header-inner">
             <div class="brand-left">
                 <picture>
-                    <!-- Logo blanc pour fond sombre -->
                     <source srcset="images/logo-hm-dark.png" media="(prefers-color-scheme: dark)">
-                    <!-- Logo gris pour fond clair -->
                     <source srcset="images/logo-hm-light.png" media="(prefers-color-scheme: light)">
                     <img src="images/logo-hm-light.png"
                          alt="Logo HM — Hassen Mokdad Studio"
@@ -67,7 +60,6 @@
             </p>
 
             <div class="controls">
-                <!-- 🔔 Un seul bouton de thème -->
                 <button id="theme-toggle" aria-label="Basculer le thème" aria-pressed="false" title="Thème">🌓</button>
                 <button id="burger" aria-label="Ouvrir le menu" aria-controls="main-nav" aria-expanded="false" title="Menu">☰</button>
             </div>
@@ -77,24 +69,22 @@
 
     <nav id="main-nav" class="main-nav" aria-label="Navigation principale">
         <ul>
-            <li><a href="#about">À propos</a></li>
             <li><a href="#services">Services</a></li>
             <li><a href="#portfolio">Portfolio</a></li>
             <li><a href="#graphisme">Graphisme</a></li>
             <li><a href="#contact">Contact</a></li>
-        </ul>
+            </ul>
     </nav>
 
     <main id="main">
-        <section id="about" class="container" data-aos="fade-up">
-            <h2>À propos</h2>
-            <div class="about-grid">
-                <div class="about-text">
-                    <p>Développeur web basé à Paris, spécialisé en HTML, CSS, JavaScript et WordPress. J’aime construire des interfaces claires et performantes tout en valorisant le design graphique.</p>
-                    <a class="btn" href="#portfolio">Découvrir mes projets</a>
-                </div>
+        <section id="hero-aprilford">
+            <div class="container hero-content-inner">
+                <h2 class="title-hero">STOP SEARCHING<br>START DESIGNING.</h2>
+                <p class="subtitle-hero">Le #1 pour des expériences utilisateurs inoubliables. Développeur web à Paris.</p>
+                <a href="#portfolio" class="btn-hero">DÉMARRER MAINTENANT</a>
             </div>
         </section>
+
 
         <section id="services" class="container" data-aos="fade-up">
             <h2>Services</h2>
@@ -152,7 +142,6 @@
                 <img src="images/LOGO_OCCITANE.png" alt="Logo L'Occitane" loading="lazy" decoding="async">
                 <img src="images/c4d.png" alt="Modèle 3D Cinema 4D" loading="lazy" decoding="async">
                 <img src="images/diamant.png" alt="Design Diamant 3D" loading="lazy" decoding="async">
-                <!-- ⚠️ Évite les noms de fichiers avec espaces : renomme 'StreetArt .jpg' en 'StreetArt.jpg' -->
                 <img src="images/StreetArt .png" alt="Street Art (Design)" loading="lazy" decoding="async">
                 <img src="images/album.jpg" alt="Couverture d'album" loading="lazy" decoding="async">
                 <img src="images/book.jpg" alt="Street Art (Photo)" loading="lazy" decoding="async">
@@ -163,7 +152,6 @@
         <section id="contact" class="container" data-aos="fade-up">
             <h2>Contact</h2>
             <form id="contact-form" novalidate>
-                <!-- Champ honeypot anti-spam (caché visuellement) -->
                 <label class="sr-only" for="website">Site web</label>
                 <input type="text" id="website" name="website" autocomplete="off" tabindex="-1" aria-hidden="true" class="honeypot">
 
@@ -180,7 +168,6 @@
 
             <p>Tu peux me joindre à <a href="mailto:mokdadhassen@yahoo.fr">mokdadhassen@yahoo.fr</a></p>
             <div class="social-links">
-                <!-- Remplace # par tes vrais profils -->
                 <a href="#" target="_blank" rel="noopener">LinkedIn</a> ·
                 <a href="#" target="_blank" rel="noopener">GitHub</a> ·
                 <a href="#" target="_blank" rel="noopener">Behance</a>
