@@ -9,10 +9,10 @@
     --color-gradient-end: #FF007B; /* Rose vif */
     
     /* --- COULEURS THÈME CLAIR SIMPLIFIÉ --- */
-    --color-dark: #121212; /* Conservé pour les couleurs de la nav mobile */
-    --color-light-background: #f4f4f9; /* Fond général */
-    --color-text-dark: #333333; /* Texte principal */
-    --color-text-light: #ffffff; /* Texte sur le Hero/boutons */
+    --color-dark: #121212; 
+    --color-light-background: #f4f4f9; 
+    --color-text-dark: #333333; 
+    --color-text-light: #ffffff; 
     --color-accent: #ffb700; 
     --color-primary: #1e88e5; 
     --color-secondary: #0077b6; 
@@ -144,7 +144,7 @@ section {
     transition: background-color .3s;
 }
 
-/* Texte et éléments en blanc sur le Hero */
+/* Force les éléments du header à être blancs sur le Hero */
 #hero-aprilford .site-header .header-inner * {
     color: var(--color-text-light) !important;
 }
