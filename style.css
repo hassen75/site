@@ -134,13 +134,12 @@ section {
    Header & Navigation (Adaptation Hero)
    =========================== */
 .site-header {
-    /* CORRECTION FINALE: Header par défaut (état Sticky) */
+    /* ÉTAT PAR DÉFAUT: Sticky, Opaque (quand le Hero n'est pas visible) */
     position: sticky !important; 
     top: 0 !important;
     width: 100% !important;
     z-index: 1000 !important;
     
-    /* Fond blanc/opaque (état Sticky) */
     background: var(--color-light-background) !important; 
     padding: 1rem 0 !important;
     transition: background-color .3s;
@@ -153,8 +152,7 @@ section {
     font-weight: var(--font-weight-bold);
     font-size: 20px;
     text-decoration: none;
-    /* Couleur par défaut: Sombre (pour l'état sticky) */
-    color: var(--color-text-dark) !important; 
+    color: var(--color-text-dark) !important; /* Couleur par défaut (sombre) */
 }
 
 /* ⚠️ RÈGLE DE TRANSITION JAVASCRIPT: Header quand il est sur le Hero (Transparent/Blanc) */
@@ -167,7 +165,7 @@ section {
 .site-header.on-hero .text-logo,
 .site-header.on-hero .main-nav li a,
 .site-header.on-hero .contact-header-btn {
-    color: var(--color-text-light) !important; /* TEXTE BLANC */
+    color: var(--color-text-light) !important; /* FORCE LE TEXTE BLANC */
 }
 
 /* Le logo image est masqué pour l'usage du logo texte */
@@ -205,9 +203,8 @@ section {
 .contact-header-btn {
     padding: 8px 15px !important; 
     font-size: 14px !important;
-    /* Style du bouton blanc (reste blanc sur le fond transparent du Hero et sur le fond blanc du Sticky Header) */
     background-color: var(--color-text-light) !important;
-    color: var(--color-text-dark) !important; /* Texte noir sur bouton blanc */
+    color: var(--color-text-dark) !important; 
     background-image: none !important; 
     box-shadow: none !important;
     font-weight: var(--font-weight-semibold) !important;
@@ -371,7 +368,6 @@ button {
     font-weight: var(--font-weight-bold);
     transition: opacity .2s, transform .2s;
     border: none;
-    cursor: pointer;
     box-shadow: 0 2px 0 rgba(0,0,0,.12);
 }
 
@@ -627,15 +623,9 @@ footer p {
         width: 100% !important;
         z-index: 1000 !important;
         
-        /* Fond blanc/opaque (état Sticky) */
+        /* Rend le fond blanc/opaque lorsqu'il est sticky */
         background-color: var(--color-light-background) !important; 
-        color: var(--color-text-dark) !important;
         border-bottom: 1px solid #ddd; /* Ajoute la bordure en mode sticky */
-    }
-    
-    /* Les éléments du Header (texte, liens) redeviennent sombres sur le fond clair du sticky header */
-    .site-header .header-inner * {
-        color: var(--color-text-dark) !important;
     }
     
     /* ⚠️ RÈGLE JAVASCRIPT: Quand la classe on-hero est présente (en haut de page) */
@@ -648,7 +638,7 @@ footer p {
     .site-header.on-hero .text-logo,
     .site-header.on-hero .main-nav li a,
     .site-header.on-hero .contact-header-btn {
-        color: var(--color-text-light) !important; /* TEXTE BLANC sur le Hero transparent */
+        color: var(--color-text-light) !important; /* FORCE LE TEXTE BLANC */
     }
     
     /* Le bouton 'Contactez-moi' doit rester blanc avec texte sombre, même sur le Hero */
@@ -657,6 +647,11 @@ footer p {
         color: var(--color-text-dark) !important; 
     }
 
+    /* Les liens redeviennent sombres sur le fond clair du header sticky */
+    .site-header .header-inner * {
+        color: var(--color-text-dark) !important;
+    }
+    
     .header-inner {
         flex-wrap: nowrap;
         justify-content: space-between; 
