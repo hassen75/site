@@ -134,17 +134,17 @@ section {
    Header & Navigation (Adaptation Hero)
    =========================== */
 .site-header {
-    /* CORRECTION FINALE: Header en relative pour que le Hero commence en dessous */
-    position: relative !important; 
+    /* CORRECTION FINALE: Header par défaut (état Sticky) */
+    position: sticky !important; 
     top: 0 !important;
     width: 100% !important;
     z-index: 1000 !important;
     
-    /* Fond blanc (light-background) pour séparer visuellement le Hero */
+    /* Fond blanc/opaque (état Sticky) */
     background: var(--color-light-background) !important; 
     padding: 1rem 0 !important;
     transition: background-color .3s;
-    border-bottom: 1px solid #ddd; /* Ligne de séparation visible */
+    border-bottom: 1px solid #ddd; 
 }
 
 /* NOUVEAU: Style pour le logo en texte */
@@ -153,8 +153,21 @@ section {
     font-weight: var(--font-weight-bold);
     font-size: 20px;
     text-decoration: none;
-    /* Le logo est sombre par défaut (sur fond blanc) */
+    /* Couleur par défaut: Sombre (pour l'état sticky) */
     color: var(--color-text-dark) !important; 
+}
+
+/* ⚠️ RÈGLE DE TRANSITION JAVASCRIPT: Header quand il est sur le Hero (Transparent/Blanc) */
+.site-header.on-hero {
+    position: absolute !important; 
+    background: transparent !important; 
+    border-bottom: none !important; 
+}
+
+.site-header.on-hero .text-logo,
+.site-header.on-hero .main-nav li a,
+.site-header.on-hero .contact-header-btn {
+    color: var(--color-text-light) !important; /* TEXTE BLANC */
 }
 
 /* Le logo image est masqué pour l'usage du logo texte */
@@ -192,8 +205,9 @@ section {
 .contact-header-btn {
     padding: 8px 15px !important; 
     font-size: 14px !important;
+    /* Style du bouton blanc (reste blanc sur le fond transparent du Hero et sur le fond blanc du Sticky Header) */
     background-color: var(--color-text-light) !important;
-    color: var(--color-text-dark) !important;
+    color: var(--color-text-dark) !important; /* Texte noir sur bouton blanc */
     background-image: none !important; 
     box-shadow: none !important;
     font-weight: var(--font-weight-semibold) !important;
@@ -606,37 +620,46 @@ footer p {
     }
 
     /* ********** CORRECTION MAJEURE ICI : HEADER STICKY ET OPACITÉ ********** */
-    /* Pour les sections en dessous du Hero, le Header redevient opaque et sticky */
+    /* Le Header est positionné en sticky par défaut, mais avec une correction pour le Hero */
     .site-header {
         position: sticky !important; 
         top: 0 !important;
         width: 100% !important;
         z-index: 1000 !important;
         
-        /* Rend le fond blanc/opaque lorsqu'il est sticky */
-        background-color: #fff !important; 
+        /* Fond blanc/opaque (état Sticky) */
+        background-color: var(--color-light-background) !important; 
         color: var(--color-text-dark) !important;
         border-bottom: 1px solid #ddd; /* Ajoute la bordure en mode sticky */
     }
     
-    /* Le Header redevient transparent et le texte blanc S'IL EST EN ABSOLU SUR LE HERO */
-    .site-header:not([style*="position: sticky"]) {
-        position: absolute !important;
-        background: transparent !important;
-        border-bottom: none !important;
-    }
-    .site-header:not([style*="position: sticky"]) * {
-        color: var(--color-text-light) !important;
-    }
-
-    /* Les liens redeviennent sombres sur le fond clair du header */
+    /* Les éléments du Header (texte, liens) redeviennent sombres sur le fond clair du sticky header */
     .site-header .header-inner * {
         color: var(--color-text-dark) !important;
     }
     
+    /* ⚠️ RÈGLE JAVASCRIPT: Quand la classe on-hero est présente (en haut de page) */
+    .site-header.on-hero {
+        position: absolute !important; /* Décroche le header du flux */
+        background: transparent !important; /* Devient transparent */
+        border-bottom: none !important; /* Pas de bordure sur le Hero */
+    }
+    
+    .site-header.on-hero .text-logo,
+    .site-header.on-hero .main-nav li a,
+    .site-header.on-hero .contact-header-btn {
+        color: var(--color-text-light) !important; /* TEXTE BLANC sur le Hero transparent */
+    }
+    
+    /* Le bouton 'Contactez-moi' doit rester blanc avec texte sombre, même sur le Hero */
+    .site-header.on-hero .contact-header-btn {
+        background-color: var(--color-text-light) !important; 
+        color: var(--color-text-dark) !important; 
+    }
+
     .header-inner {
         flex-wrap: nowrap;
-        justify-content: space-between; /* Utiliser space-between pour séparer logo/nav/bouton */
+        justify-content: space-between; 
     }
 
     .brand-left {
@@ -655,7 +678,7 @@ footer p {
         height: auto;
         padding-top: 0;
         background: transparent !important;
-        margin-right: auto; /* Pousser la nav vers le centre/droite */
+        margin-right: auto; 
         margin-left: 0; 
     }
 
