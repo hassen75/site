@@ -664,12 +664,14 @@ footer p {
 
     .header-inner {
         flex-wrap: nowrap;
+        /* Correction du centrage de la Nav : permet à la nav d'être au milieu de l'espace */
         justify-content: space-between; 
         align-items: center; /* CORRECTION VERTICALE */
     }
 
     .brand-left {
-        margin-right: 20px; 
+        /* NOUVEAU: Retirer la marge fixe pour que la nav puisse prendre tout l'espace */
+        margin-right: 0; 
     }
 
     .tagline {
@@ -684,8 +686,9 @@ footer p {
         height: auto;
         padding-top: 0;
         background: transparent !important;
+        /* NOUVEAU: Centrage de la nav dans l'espace restant */
         margin-right: auto; 
-        margin-left: 0; 
+        margin-left: auto; /* Permet le centrage Flexbox */
     }
 
         .main-nav ul {
