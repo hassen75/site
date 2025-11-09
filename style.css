@@ -152,7 +152,7 @@ section {
     font-weight: var(--font-weight-bold);
     font-size: 20px;
     text-decoration: none;
-    color: var(--color-text-dark) !important; /* Couleur par défaut: Sombre */
+    color: var(--color-text-dark) !important; 
     /* CORRECTION VERTICALE */
     margin: 0 !important;
     padding: 0 !important;
@@ -185,8 +185,8 @@ section {
 .header-inner {
     display: flex;
     justify-content: space-between;
-    /* CORRECTION VERTICALE : Aligner au centre */
-    align-items: center;
+    /* CORRECTION VERTICALE */
+    align-items: center; 
     flex-wrap: wrap;
     min-height: 80px; 
 }
@@ -522,4 +522,250 @@ button {
 #contact-form input, #contact-form textarea {
     flex-grow: 1;
     padding: .75rem;
-    border: 1px solid #ddd;
+    border: 1px solid #ddd; 
+    border-radius: 5px;
+    background-color: var(--color-text-light);
+    color: var(--color-text-dark);
+    font-family: var(--font-body)
+}
+
+/* Styles de focus AprilFord */
+#contact-form input:focus, #contact-form textarea:focus {
+    border-color: var(--color-primary-blue);
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.15);
+    outline: none;
+}
+
+#contact-form textarea {
+    height: 150px;
+    resize: vertical
+}
+
+#form-status {
+    padding: .5rem;
+    text-align: center;
+    font-weight: 600
+}
+
+.social-links {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    font-size: 1.1rem
+}
+
+.social-links a {
+    color: var(--color-primary-blue);
+    text-decoration: none;
+    font-weight: var(--font-weight-semibold);
+}
+
+.social-links a:hover {
+    color: var(--color-secondary-pink);
+    text-decoration: underline;
+}
+
+/* Footer (Light Mode / AprilFord) */
+footer {
+    background-color: var(--color-light-background); 
+    color: var(--color-text-dark); 
+    padding: 2.5rem 1rem; 
+    font-size: .95rem; 
+    border-top: 1px solid #e5e5e5; 
+}
+
+/* Structure interne du footer */
+.footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.footer-copyright {
+    margin: 0;
+    opacity: 0.8;
+    order: 2;
+}
+
+.footer-email {
+    margin: 0;
+    order: 1;
+}
+
+footer p {
+    margin: 0; 
+    text-align: center;
+}
+
+/* ===========================
+   Responsive (Final)
+   =========================== */
+@media (min-width:768px) {
+    #burger {
+        display: none !important; /* Masquer le burger sur desktop */
+    }
+
+    /* Le logo image est masqué pour l'usage du logo texte */
+    .logo-hm {
+        display: none !important;
+    }
+    
+    /* Afficher le logo texte sur desktop */
+    .text-logo {
+        display: block !important;
+    }
+
+    /* ⚠️ ÉTAT STICKY / OPAQUE (Quand on DÉFILE) */
+    .site-header {
+        position: sticky !important; 
+        top: 0 !important;
+        width: 100% !important;
+        z-index: 1000 !important;
+        
+        background-color: var(--color-light-background) !important; 
+        border-bottom: 1px solid #ddd; 
+    }
+    
+    /* ⚠️ ÉTAT ON-HERO / TRANSPARENT (Quand en HAUT DE PAGE) */
+    .site-header.on-hero {
+        position: absolute !important; 
+        background: transparent !important; 
+        border-bottom: none !important; 
+    }
+
+    /* TEXTE BLANC DANS L'ÉTAT ON-HERO */
+    .site-header.on-hero .text-logo,
+    .site-header.on-hero .main-nav li a {
+        color: var(--color-text-light) !important; /* FORCE LE TEXTE BLANC */
+    }
+    
+    /* Bouton 'Contactez-moi' reste blanc avec texte sombre, même sur le Hero */
+    .site-header.on-hero .contact-header-btn {
+        background-color: var(--color-text-light) !important; 
+        color: var(--color-text-dark) !important; 
+    }
+
+    /* Les liens redeviennent sombres sur le fond clair du header sticky */
+    .site-header .header-inner * {
+        color: var(--color-text-dark) !important;
+    }
+    
+    /* CORRECTION MARGES LOGO (text-logo) */
+    .text-logo {
+        margin: 0 !important;
+        padding: 0 !important;
+        line-height: 1 !important;
+    }
+
+    .header-inner {
+        flex-wrap: nowrap;
+        justify-content: space-between; 
+        align-items: center; /* CORRECTION VERTICALE */
+    }
+
+    .brand-left {
+        margin-right: 20px; 
+    }
+
+    .tagline {
+        display: none !important; 
+    }
+
+    /* Styles pour la navigation desktop */
+    .main-nav {
+        position: static;
+        display: block !important; 
+        width: auto;
+        height: auto;
+        padding-top: 0;
+        background: transparent !important;
+        margin-right: auto; 
+        margin-left: 0; 
+    }
+
+        .main-nav ul {
+            display: flex;
+            gap: 1rem
+        }
+
+        .main-nav li a {
+            padding: .5rem 1rem;
+            font-size: 1rem;
+            border-radius: 5px;
+            color: var(--color-text-dark) !important;
+        }
+
+    .about-grid {
+        grid-template-columns: 1fr
+    }
+}
+
+@media (max-width: 768px) {
+    /* Masquer le logo texte sur mobile pour laisser la place au logo image */
+    .text-logo {
+        display: none !important;
+    }
+    .logo-hm { /* Si le logo image est toujours dans le HTML, il sera visible ici */
+        filter: brightness(0) invert(1) !important; 
+    }
+    
+    .site-header {
+        position: relative !important; 
+        background: var(--color-text-dark) !important; 
+        padding-top: 1rem;
+    }
+    
+    .site-header .header-inner * {
+        color: var(--color-text-light) !important;
+    }
+    
+    #hero-aprilford {
+        min-height: 50vh; 
+    }
+    
+    .title-hero {
+        font-size: 40px;
+    }
+    
+    #burger {
+        display: block;
+    }
+    
+    .main-nav {
+        display: none;
+    }
+    
+    .header-inner {
+        flex-wrap: wrap;
+    }
+
+    .tagline {
+        display: none; 
+    }
+    
+    .main-nav.open {
+        display: block;
+    }
+
+    /* Footer Responsive */
+    .footer-inner {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .footer-email, .footer-copyright {
+        text-align: center;
+        width: 100%;
+        order: initial; 
+    }
+    .footer-copyright {
+        order: 2; 
+    }
+    .footer-email {
+        order: 1; 
+    }
+}
