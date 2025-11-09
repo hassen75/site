@@ -1,4 +1,4 @@
-/* ===========================
+/* ===========================/* ===========================
    Variables & Reset de base
    =========================== */
 :root {
@@ -152,21 +152,27 @@ section {
     font-weight: var(--font-weight-bold);
     font-size: 20px;
     text-decoration: none;
-    color: var(--color-text-dark) !important; /* Couleur par défaut (sombre) */
+    color: var(--color-text-dark) !important; /* Couleur par défaut: Sombre */
 }
 
-/* ⚠️ RÈGLE DE TRANSITION JAVASCRIPT: Header quand il est sur le Hero (Transparent/Blanc) */
+/* ⚠️ RÈGLE DE TRANSITION JAVASCRIPT: Quand la classe on-hero est présente (Transparent/Blanc) */
 .site-header.on-hero {
     position: absolute !important; 
     background: transparent !important; 
     border-bottom: none !important; 
 }
 
+/* ⚠️ RÈGLE CRITIQUE POUR LE TEXTE BLANC DANS LE HERO */
 .site-header.on-hero .text-logo,
-.site-header.on-hero .main-nav li a,
-.site-header.on-hero .contact-header-btn {
+.site-header.on-hero .main-nav li a {
     color: var(--color-text-light) !important; /* FORCE LE TEXTE BLANC */
 }
+/* Le bouton doit rester sombre/blanc */
+.site-header.on-hero .contact-header-btn {
+    color: var(--color-text-dark) !important; 
+    background-color: var(--color-text-light) !important; 
+}
+
 
 /* Le logo image est masqué pour l'usage du logo texte */
 .logo-hm {
@@ -635,9 +641,9 @@ footer p {
         border-bottom: none !important; /* Pas de bordure sur le Hero */
     }
     
+    /* RÈGLE CRITIQUE POUR LE TEXTE BLANC (DANS LE HERO) */
     .site-header.on-hero .text-logo,
-    .site-header.on-hero .main-nav li a,
-    .site-header.on-hero .contact-header-btn {
+    .site-header.on-hero .main-nav li a {
         color: var(--color-text-light) !important; /* FORCE LE TEXTE BLANC */
     }
     
@@ -654,7 +660,7 @@ footer p {
     
     .header-inner {
         flex-wrap: nowrap;
-        justify-content: space-between; 
+        justify-content: space-between; /* Utiliser space-between pour séparer logo/nav/bouton */
     }
 
     .brand-left {
