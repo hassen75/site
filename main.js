@@ -1,5 +1,27 @@
 document.addEventListener('DOMContentLoaded', function () {
   
+  // --- Sticky Header Logic (Ajoute/retire la classe 'on-hero') ---
+  const header = document.querySelector('.site-header');
+  const heroSection = document.getElementById('hero-aprilford');
+
+  function checkHeaderPosition() {
+    if (header && heroSection) {
+      // Calcule si le haut du Hero est toujours visible
+      // On utilise le scrollY (position verticale de défilement)
+      if (window.scrollY < heroSection.offsetHeight - header.offsetHeight) {
+        header.classList.add('on-hero');
+      } else {
+        header.classList.remove('on-hero');
+      }
+    }
+  }
+
+  // Ajoute la classe 'on-hero' au chargement (pour l'affichage initial)
+  if (header) {
+      window.requestAnimationFrame(checkHeaderPosition);
+      window.addEventListener('scroll', checkHeaderPosition);
+  }
+
   // --- Menu burger (null-safe partout) ---
   const burger = document.getElementById('burger');
   const nav = document.getElementById('main-nav');
