@@ -134,7 +134,7 @@ section {
    Header & Navigation (Adaptation Hero)
    =========================== */
 .site-header {
-    /* Styles FLOTTANTS au-dessus du Hero (position absolue sur la page) */
+    /* Styles FLOTTANTS: BLEU JUSQU'EN HAUT */
     position: absolute !important; 
     top: 0 !important;
     width: 100% !important;
@@ -142,6 +142,7 @@ section {
     background: transparent !important; 
     padding: 1rem 0 !important;
     transition: background-color .3s;
+    border-bottom: none !important; 
 }
 
 /* NOUVEAU: Style pour le logo en texte */
@@ -150,10 +151,13 @@ section {
     font-weight: var(--font-weight-bold);
     font-size: 20px;
     text-decoration: none;
+    /* Couleur de base blanche pour flotter sur le Hero */
+    color: var(--color-text-light) !important; 
 }
-/* Force les éléments du header à être blancs sur le Hero */
-#hero-aprilford .site-header .header-inner * {
-    color: var(--color-text-light) !important;
+
+/* Le logo image est masqué pour l'usage du logo texte */
+.logo-hm {
+    display: none !important;
 }
 
 /* Masquer la tagline */
@@ -176,19 +180,22 @@ section {
     margin-right: 2rem;
 }
 
-/* Le Logo Image (s'il existe) */
-.logo-hm {
-    width: 100px !important; 
-    height: 100px !important; 
-    display: block;
-    object-fit: contain; 
-    padding: 0; 
-}
-
 .controls {
     display: flex;
     gap: 10px;
     margin-left: auto;
+}
+
+/* BOUTON CONTACTEZ-MOI DANS LE HEADER */
+.contact-header-btn {
+    padding: 8px 15px !important; 
+    font-size: 14px !important;
+    /* Style du bouton blanc */
+    background-color: var(--color-text-light) !important;
+    color: var(--color-text-dark) !important; /* Texte noir sur bouton blanc */
+    background-image: none !important; 
+    box-shadow: none !important;
+    font-weight: var(--font-weight-semibold) !important;
 }
 
 #theme-toggle, #burger {
@@ -205,17 +212,6 @@ section {
     #theme-toggle:hover, #burger:hover {
         background: rgba(127,127,127,.12)
     }
-
-/* BOUTON CONTACTEZ-MOI DANS LE HEADER */
-.contact-header-btn {
-    padding: 8px 15px !important; 
-    font-size: 14px !important;
-    background-color: var(--color-text-light) !important;
-    color: var(--color-text-dark) !important;
-    background-image: none !important; 
-    box-shadow: none !important;
-    font-weight: var(--font-weight-semibold) !important;
-}
 
 .main-nav {
     display: none;
@@ -598,7 +594,7 @@ footer p {
         display: none !important; /* Masquer le burger sur desktop */
     }
 
-    /* Le logo image (s'il était présent) est masqué, le logo texte prend le relais */
+    /* Le logo image est masqué pour l'usage du logo texte */
     .logo-hm {
         display: none !important;
     }
@@ -616,19 +612,15 @@ footer p {
         width: 100% !important;
         z-index: 1000 !important;
         
-        /* Rend le fond blanc/opaque, créant la coupure visuelle */
+        /* Rend le fond blanc/opaque lorsqu'il est sticky */
         background-color: #fff !important; 
         color: var(--color-text-dark) !important;
-        border-bottom: 1px solid #ddd;
+        border-bottom: 1px solid #ddd; /* Ajoute la bordure en mode sticky */
     }
     
     /* Supprimer les couleurs blanches forcées du Header pour les éléments sticky */
     .site-header .header-inner * {
         color: var(--color-text-dark) !important;
-    }
-    /* S'assurer que le logo texte ne soit pas blanc sur le sticky header */
-    #hero-aprilford .site-header .text-logo {
-        color: var(--color-text-dark) !important; 
     }
     /* FIN DE LA CORRECTION MAJEURE */
 
@@ -653,7 +645,8 @@ footer p {
         height: auto;
         padding-top: 0;
         background: transparent !important;
-        margin-right: auto; /* Pousser la nav vers le centre/droite */
+        /* NOUVEAU: Centrage de la nav */
+        margin-right: auto; 
         margin-left: 0; 
     }
 
