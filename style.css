@@ -147,17 +147,22 @@ section {
 }
 
 /* NOUVEAU: Style pour le logo en texte */
+/* NOUVEAU STYLE DU LOGO TEXTE */
 .text-logo {
-    font-family: var(--font-heading);
-    font-weight: var(--font-weight-bold);
-    font-size: 20px;
+    font-family: 'Barlow Condensed', sans-serif; /* EXEMPLE de police audacieuse */
+    font-weight: 700; /* Rendre plus gras pour l'impact */
+    font-size: 24px; /* Un peu plus grand */
+    text-transform: uppercase; /* Typographie forte en majuscule */
     text-decoration: none;
-    color: var(--color-text-dark) !important; 
-    /* CORRECTION VERTICALE */
+    color: var(--color-text-dark) !important;
+    /* Correction verticale */
     margin: 0 !important;
     padding: 0 !important;
     line-height: 1;
 }
+
+/* ⚠️ N'oubliez pas d'importer la police Barlow Condensed dans votre HTML HEAD si vous l'utilisez */
+/* <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700&display=swap" rel="stylesheet"> */
 
 /* ⚠️ RÈGLE DE TRANSITION JAVASCRIPT: Quand la classe on-hero est présente (Transparent/Blanc) */
 .site-header.on-hero {
@@ -772,3 +777,4 @@ footer p {
         order: 1; 
     }
 }
+
