@@ -738,6 +738,56 @@ footer p {
         grid-template-columns: 1fr
     }
 }
+/* --- Header sticky & états --- */
+.site-header {
+  position: sticky; top: 0; z-index: 1000;
+  background: #fff; /* fond par défaut */
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 12px 16px; border-bottom: 1px solid #eee;
+}
+
+/* Quand le header chevauche le hero (ton JS ajoute on-hero) */
+.site-header.on-hero {
+  background: transparent;
+  border-bottom-color: transparent;
+  /* si ton texte devient illisible, force une couleur ici */
+  /* color: #fff; */
+}
+
+/* --- Nav desktop --- */
+.site-nav ul {
+  margin: 0; padding: 0; list-style: none; display: flex; gap: 24px;
+}
+.nav-toggle { display: none; }
+
+/* --- Nav mobile (cachée par défaut) --- */
+@media (max-width: 768px) {
+  .nav-toggle { display: inline-flex; font-size: 1.5rem; background: none; border: 0; }
+
+  .site-nav {
+    display: none;
+  }
+
+  /* Quand le header a la classe .nav-open (ajoutée par ton JS) => on affiche la nav */
+  .site-header.nav-open .site-nav {
+    display: block;
+    position: fixed; inset: 0 0 0 30%; /* panneau latéral droit (70% de largeur) */
+    background: #0f0f14; /* ou var(--bg) si tu as des variables */
+    padding: 24px;
+  }
+
+  .site-header.nav-open .site-nav ul {
+    display: grid; gap: 16px;
+  }
+
+  .site-header.nav-open .site-nav a {
+    color: #fff; text-decoration: none; font-size: 1.1rem;
+  }
+}
+
+/* --- Option debug temporaire si ça n’apparaît toujours pas --- */
+.site-header, .site-nav { z-index: 9999; }
+
 
 /* ===========================
    Responsive (Correction Mobile Finale)
@@ -822,3 +872,4 @@ footer p {
         order: 1; 
     }
 }
+
