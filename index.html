@@ -41,38 +41,28 @@
 <body>
     <a class="skip-link" href="#main">Aller au contenu</a>
 
-    <header id="site-header" class="site-header" data-aos="fade-down">
-        <div class="container header-inner">
-            <div class="brand-left">
-                <a href="#main" class="logo text-logo">Hassen Mokdad</a>
-                
-                <span class="logo-descriptor">Portfolio</span>
-            </div>
+<header class="site-header">
+  <a class="brand" href="#top">Hassen Mokdad</a>
 
-            <p class="tagline">
-                Développeur web et graphiste à Paris, je conçois des sites performants et élégants alliant design et technologie.
-            </p>
+  <button id="nav-toggle"
+          class="nav-toggle"
+          aria-expanded="false"
+          aria-controls="site-nav"
+          aria-label="Ouvrir le menu">☰</button>
 
-            <nav id="site-nav" class="main-nav nav" role="navigation">
-                <ul>
-                    <li><a href="#about">À Propos</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#portfolio">Portfolio</a></li>
-                    </ul>
-            </nav>
+  <nav id="site-nav" class="site-nav">
+    <ul>
+      <li><a href="#about">À Propos</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#contact">Contactez-moi</a></li>
+    </ul>
+  </nav>
+</header>
 
-            <div class="controls">
-                <a href="#contact" class="btn contact-header-btn">Contactez-moi</a>
-                <button id="nav-toggle" class="burger" aria-expanded="false" aria-controls="site-nav" aria-label="Ouvrir le menu">
-                  ☰
-                </button>
-            </div>
-            
-        </div>
-    </header>
+<!-- Ton hero doit exister si tu gardes la logique on-hero -->
+<section id="hero-aprilford"> … </section>
 
-    <main id="main">
-        <section id="hero-aprilford">
             <div class="container hero-content-inner">
                 <h2 class="title-hero">STOP SEARCHING<br>START DESIGNING.</h2>
                 <p class="subtitle-hero">Développeur web et graphiste à Paris, je conçois des sites performants et élégants alliant design et technologie.</p>
@@ -196,3 +186,4 @@
     <script>AOS.init({ duration: 800, once: true });</script>
 </body>
 </html>
+
