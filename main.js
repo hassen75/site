@@ -6,7 +6,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
   function checkHeaderPosition() {
     if (header && heroSection) {
-      // Détermine la position où le Hero n'est plus entièrement visible
+      // Détermine si le défilement est en haut de la section Hero.
+      // Si la position de défilement est inférieure à la hauteur du Hero moins la hauteur du Header,
+      // on est encore "sur" le Hero.
       if (window.scrollY < heroSection.offsetHeight - header.offsetHeight) {
         header.classList.add('on-hero');
       } else {
@@ -16,10 +18,13 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   // Active la vérification au chargement et au défilement
-  if (header) {
-      window.requestAnimationFrame(checkHeaderPosition);
+  if (header && heroSection) {
+      // Vérifie immédiatement au chargement (pour l'affichage initial)
+      checkHeaderPosition(); 
+      // Écoute l'événement de défilement
       window.addEventListener('scroll', checkHeaderPosition);
   }
+
 
   // --- Menu burger (null-safe partout) ---
   const burger = document.getElementById('burger');
@@ -32,12 +37,13 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   if (burger && nav) {
+    // ⚠️ Le clic sur le burger active/désactive le menu
     burger.addEventListener('click', () => {
       const isOpen = nav.classList.toggle('open');
       burger.setAttribute('aria-expanded', String(isOpen));
     });
 
-    // Fermer la nav quand on clique sur un lien
+    // Fermer la nav quand on clique sur un lien (très important pour mobile)
     nav.addEventListener('click', (e) => {
       const t = e.target;
       if (t && t.matches && t.matches('a')) closeNav();
