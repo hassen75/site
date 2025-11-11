@@ -42,26 +42,25 @@
     <a class="skip-link" href="#main">Aller au contenu</a>
 
 <header class="site-header">
-  <a class="brand" href="#top">Hassen Mokdad</a>
+  <div class="header-inner">
+    <div class="brand-left">
+      <a href="#top" class="text-logo">Hassen Mokdad</a>
+      <span class="logo-descriptor">Portfolio</span>
+    </div>
 
-  <button id="nav-toggle"
-          class="nav-toggle"
-          aria-expanded="false"
-          aria-controls="site-nav"
-          aria-label="Ouvrir le menu">☰</button>
+    <button id="nav-toggle"
+            aria-expanded="false"
+            aria-controls="site-nav"
+            aria-label="Ouvrir le menu">☰</button>
 
-  <nav id="site-nav" class="main-nav">  <!-- ajoute main-nav si absent -->
-  …
-</nav>
-
-    <ul>
-      <li><a href="#about">À Propos</a></li>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#portfolio">Portfolio</a></li>
-      <li><a href="#contact">Contactez-moi</a></li>
-    </ul>
-  </nav>
+    <nav id="site-nav" class="main-nav" role="navigation" aria-label="Navigation principale">
+      <a href="#about">À Propos</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contactez-moi</a>
+    </nav>
+  </div>
 </header>
+
 
 <!-- Ton hero doit exister si tu gardes la logique on-hero -->
 <section id="hero-aprilford"> … </section>
@@ -189,5 +188,6 @@
     <script>AOS.init({ duration: 800, once: true });</script>
 </body>
 </html>
+
 
 
