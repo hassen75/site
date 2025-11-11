@@ -708,10 +708,9 @@ footer p {
     }
 }
 @media (max-width: 480px) {
-  /* Hero */
-  .title-hero {
-    font-size: 28px;
-    line-height: 1.2;
+  .btn-hero {
+    font-size: 16px;
+    padding: 12px 20px;
   }
 
   .subtitle-hero {
@@ -719,53 +718,8 @@ footer p {
     padding: 0 10px;
   }
 
-  .btn-hero {
-    font-size: 15px;
-    padding: 10px 18px;
-  }
-
-  /* Titres */
   h2 {
-    font-size: 26px;
-    margin-bottom: 30px;
-  }
-
-  /* Services */
-  .services-list li {
-    padding: 20px 15px;
-    font-size: 0.95rem;
-  }
-
-  /* Portfolio */
-  .project-card h3 {
-    font-size: 1rem;
-  }
-
-  .gallery-grid img {
-    height: 140px;
-  }
-
-  /* Navigation mobile */
-  .main-nav li a {
-    font-size: 1.2rem;
-    padding: 0.75rem;
-  }
-
-  /* Bouton header */
-  .contact-header-btn {
-    font-size: 13px;
-    padding: 6px 12px;
-  }
-
-  /* Footer */
-  .footer-inner {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .footer-email, .footer-copyright {
-    text-align: center;
-    width: 100%;
+    font-size: 28px;
   }
 }
 
@@ -833,6 +787,4 @@ footer p {
         order: 1; 
     }
 }
-
-
 
