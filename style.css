@@ -708,18 +708,27 @@ footer p {
     }
 }
 @media (max-width: 480px) {
-  .btn-hero {
-    font-size: 16px;
-    padding: 12px 20px;
+  .title-hero {
+    font-size: 32px;
+    line-height: 1.2;
   }
 
-  .subtitle-hero {
-    font-size: 16px;
-    padding: 0 10px;
+  .project-card h3 {
+    font-size: 1rem;
   }
 
-  h2 {
-    font-size: 28px;
+  .gallery-grid img {
+    height: 140px;
+  }
+
+  .services-list li {
+    padding: 20px 15px;
+    font-size: 0.95rem;
+  }
+
+  .contact-header-btn {
+    font-size: 13px;
+    padding: 6px 12px;
   }
 }
 
@@ -787,4 +796,5 @@ footer p {
         order: 1; 
     }
 }
+
 
