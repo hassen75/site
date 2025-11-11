@@ -146,7 +146,7 @@ section {
     border-bottom: 1px solid #ddd; 
 }
 
-/* NOUVEAU: Style pour le logo en texte */
+/* NOUVEAU: Style pour le logo en texte (PARTIE GRASSE) */
 .text-logo {
     font-family: var(--font-heading);
     font-weight: var(--font-weight-bold);
@@ -753,11 +753,11 @@ footer p {
     /* ⚠️ CORRECTION 1: LOGO TEXTE COMPLET (Hassen Mokdad) */
     .text-logo {
         display: block !important; 
-        font-size: 18px; 
+        font-size: 16px !important; /* Taille réduite pour mobile */
         color: var(--color-text-light) !important; 
     }
     
-    /* Masquer le descripteur "Portfolio" (qui s'affichait mal en mobile) */
+    /* Masquer le descripteur "Portfolio" sur mobile */
     .logo-descriptor {
         display: none !important;
     }
@@ -771,7 +771,7 @@ footer p {
     .site-header {
         position: relative !important; 
         background: var(--color-text-dark) !important; 
-        padding-top: 1rem;
+        padding: 0.8rem 1rem !important; /* Padding réduit */
     }
     
     .site-header .header-inner * {
@@ -782,12 +782,13 @@ footer p {
         justify-content: space-between; 
         align-items: center;
         flex-wrap: nowrap; 
+        min-height: 50px; /* Hauteur réduite pour mobile */
     }
     
     .controls {
         display: flex;
         align-items: center;
-        gap: 10px; 
+        gap: 8px; /* Réduire l'espace entre le bouton et le burger */
         margin-left: 0; 
     }
     
