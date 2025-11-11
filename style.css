@@ -146,7 +146,7 @@ section {
     border-bottom: 1px solid #ddd; 
 }
 
-/* NOUVEAU: Style pour le logo en texte (PARTIE GRASSE) */
+/* NOUVEAU: Style pour le logo en texte */
 .text-logo {
     font-family: var(--font-heading);
     font-weight: var(--font-weight-bold);
@@ -229,6 +229,7 @@ section {
     font-weight: var(--font-weight-semibold) !important;
 }
 
+/* AJOUT Z-INDEX POUR CLIQUABILITÉ */
 #theme-toggle, #burger {
     background: none;
     border: none;
@@ -237,7 +238,9 @@ section {
     cursor: pointer;
     padding: 5px 10px;
     border-radius: 5px;
-    transition: background-color .2s
+    transition: background-color .2s;
+    position: relative !important; 
+    z-index: 1001 !important; 
 }
 
     #theme-toggle:hover, #burger:hover {
@@ -713,7 +716,6 @@ footer p {
         height: auto;
         padding-top: 0;
         background: transparent !important;
-        /* Centrage de la nav dans l'espace restant */
         margin-right: auto; 
         margin-left: auto; 
     }
@@ -789,7 +791,7 @@ footer p {
         display: flex;
         align-items: center;
         gap: 8px; /* Réduire l'espace entre le bouton et le burger */
-        margin-left: 0; 
+        margin-left: auto; 
     }
     
     /* Le bouton Contactez-moi et la navigation desktop sont masqués en mobile */
@@ -803,6 +805,9 @@ footer p {
         display: block !important;
         color: var(--color-text-light) !important;
         font-size: 1.3rem !important; 
+        /* AJOUT Z-INDEX POUR LA CLIQUABILITÉ */
+        position: relative !important; 
+        z-index: 1001 !important; 
     }
     
     /* Le reste des styles mobile */
