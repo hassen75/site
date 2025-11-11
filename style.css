@@ -146,7 +146,7 @@ section {
     border-bottom: 1px solid #ddd; 
 }
 
-/* NOUVEAU: Style pour le logo en texte (PARTIE GRASSE) */
+/* NOUVEAU: Style pour le logo en texte */
 .text-logo {
     font-family: var(--font-heading);
     font-weight: var(--font-weight-bold);
@@ -770,7 +770,7 @@ footer p {
     /* ⚠️ CORRECTION 2: ALIGNEMENT ET COULEURS */
     .site-header {
         position: relative !important; 
-        background: var(--color-text-dark) !important; /* Couleur sombre quand on est en haut */
+        background: var(--color-text-dark) !important; 
         padding-top: 1rem;
     }
     
@@ -781,7 +781,7 @@ footer p {
     .header-inner {
         justify-content: space-between; 
         align-items: center;
-        flex-wrap: nowrap; /* Empêche les retours à la ligne */
+        flex-wrap: nowrap; 
     }
     
     .controls {
@@ -791,22 +791,16 @@ footer p {
         margin-left: 0; 
     }
     
-    /* Le bouton Contactez-moi reste visible et utilise le style desktop (blanc/sombre) */
-    .contact-header-btn {
-        display: block !important;
-        background-color: var(--color-text-light) !important;
-        color: var(--color-text-dark) !important;
+    /* Le bouton Contactez-moi et la navigation desktop sont masqués en mobile */
+    .contact-header-btn,
+    .main-nav {
+        display: none !important; 
     }
 
     /* S'assurer que le bouton burger est visible */
     #burger {
         display: block !important;
         color: var(--color-text-light) !important;
-    }
-    
-    .main-nav {
-        /* La navigation mobile doit être masquée tant qu'on n'a pas cliqué */
-        display: none !important;
     }
     
     /* Les autres styles mobile */
