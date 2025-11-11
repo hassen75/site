@@ -711,6 +711,7 @@ footer p {
         height: auto;
         padding-top: 0;
         background: transparent !important;
+        /* Centrage de la nav dans l'espace restant */
         margin-right: auto; 
         margin-left: auto; 
     }
