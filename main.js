@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   function checkHeaderPosition() {
     if (header && heroSection) {
+      // Détermine si le défilement est en haut de la section Hero.
       if (window.scrollY < heroSection.offsetHeight - header.offsetHeight) {
         header.classList.add('on-hero');
       } else {
@@ -16,40 +17,47 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Active la vérification au chargement et au défilement
   if (header && heroSection) {
+      // Vérifie immédiatement au chargement (pour l'affichage initial)
       checkHeaderPosition(); 
+      // Écoute l'événement de défilement
       window.addEventListener('scroll', checkHeaderPosition);
   }
 
 
-  // ⚠️ NOUVEAU: Logique de Menu Burger Simplifiée
-  const burgerBtn = document.getElementById('nav-toggle'); // Mis à jour
-  const navElement = document.getElementById('site-nav');     // Mis à jour
+  // --- Menu burger (Finalisé et stable) ---
+  const burger = document.getElementById('nav-toggle'); // Mis à jour
+  const nav = document.getElementById('site-nav');     // Mis à jour
 
-  if (burgerBtn && header && navElement) {
-    burgerBtn.addEventListener('click', () => {
-      const open = header.classList.toggle('nav-open');
-      burgerBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  if (burger && nav && header) {
+    // ⚠️ Le clic sur le burger active/désactive la classe 'nav-open' sur le HEADER
+    burger.addEventListener('click', () => {
+      const isOpen = header.classList.toggle('nav-open');
+      burger.setAttribute('aria-expanded', String(isOpen));
+      // Bloque le défilement du body quand le menu est ouvert (utile sur mobile)
+      document.body.style.overflowY = isOpen ? 'hidden' : 'auto'; 
     });
 
-    // Fermer le menu quand on clique un lien
-    navElement.querySelectorAll('a').forEach(a => {
-      a.addEventListener('click', () => {
+    // Fermer le menu quand on clique un lien (utile sur mobile)
+    nav.addEventListener('click', (e) => {
+      const t = e.target;
+      if (t && t.matches && t.matches('a')) {
         header.classList.remove('nav-open');
-        burgerBtn.setAttribute('aria-expanded', 'false');
-      });
+        burger.setAttribute('aria-expanded', 'false');
+        document.body.style.overflowY = 'auto';
+      }
     });
 
-    // Optionnel: Fermer avec la touche Échap
+    // Fermer le menu avec la touche Échap
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && header.classList.contains('nav-open')) {
         header.classList.remove('nav-open');
-        burgerBtn.setAttribute('aria-expanded', 'false');
+        burger.setAttribute('aria-expanded', 'false');
+        document.body.style.overflowY = 'auto';
       }
     });
   }
 
-
-  // --- Filtres portfolio (Logiciel existant conservé) ---
+  // --- Filtres portfolio ---
   const filterBtns = document.querySelectorAll('.filter-btn');
   const projects = document.querySelectorAll('.project-card');
   if (filterBtns.length && projects.length) {
