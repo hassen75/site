@@ -43,23 +43,27 @@
 
 <header class="site-header">
   <div class="header-inner">
+    <!-- Gauche : Logo + descriptor -->
     <div class="brand-left">
       <a href="#top" class="text-logo">Hassen Mokdad</a>
       <span class="logo-descriptor">Portfolio</span>
     </div>
 
-    <button id="nav-toggle"
-            aria-expanded="false"
-            aria-controls="site-nav"
-            aria-label="Ouvrir le menu">☰</button>
-
+    <!-- Centre : Nav -->
     <nav id="site-nav" class="main-nav" role="navigation" aria-label="Navigation principale">
       <a href="#about">À Propos</a>
       <a href="#services">Services</a>
-      <a href="#contact">Contactez-moi</a>
+      <a href="#contact">Contact</a>
     </nav>
+
+    <!-- Droite : CTA -->
+    <div class="controls">
+      <a class="contact-header-btn cta" href="#contact">Contactez-moi</a>
+      <button id="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Ouvrir le menu">☰</button>
+    </div>
   </div>
 </header>
+
 
 
 <!-- Ton hero doit exister si tu gardes la logique on-hero -->
@@ -188,6 +192,7 @@
     <script>AOS.init({ duration: 800, once: true });</script>
 </body>
 </html>
+
 
 
 
