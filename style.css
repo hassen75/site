@@ -767,11 +767,11 @@ footer p {
         display: none !important;
     }
 
-    /* ⚠️ CORRECTION 2: ALIGNEMENT ET COULEURS */
+    /* ⚠️ CORRECTION 2: ALIGNEMENT ET MASQUAGE */
     .site-header {
         position: relative !important; 
         background: var(--color-text-dark) !important; 
-        padding: 0.8rem 1rem !important; /* Padding réduit */
+        padding: 0.8rem 1rem !important; /* Padding réduit pour mobile */
     }
     
     .site-header .header-inner * {
@@ -802,21 +802,10 @@ footer p {
     #burger {
         display: block !important;
         color: var(--color-text-light) !important;
+        font-size: 1.3rem !important; 
     }
     
-    /* Les autres styles mobile */
-    #hero-aprilford {
-        min-height: 50vh; 
-    }
-    
-    .title-hero {
-        font-size: 40px;
-    }
-    
-    .tagline {
-        display: none; 
-    }
-    
+    /* Le reste des styles mobile */
     .main-nav.open {
         display: block;
     }
