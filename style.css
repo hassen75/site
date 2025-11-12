@@ -841,3 +841,74 @@ footer p {
         order: 1; 
     }
 }
+/* ====== PATCH NAV — mobile ====== */
+@media (max-width: 768px) {
+  /* Laisse le CSS d'ouverture gagner (on enlève !important) */
+  #main-nav { 
+    display: none; /* pas de !important */
+  }
+
+  /* Overlay plein écran bien lisible */
+  .main-nav {
+    position: fixed;
+    inset: 0;
+    translate: 0 -100%;
+    opacity: 0;
+    transition: translate .25s ease, opacity .25s ease;
+    background: rgba(0,0,0,0.95); /* plus opaque */
+    padding-top: 96px;
+    text-align: center;
+    z-index: 9999; /* au-dessus du header */
+  }
+
+  /* OUVERTURE via la classe .nav-open portée par le header */
+  .site-header.nav-open #main-nav {           /* on matche l'ID pour la spécificité */
+    display: block !important;
+  }
+  .site-header.nav-open .main-nav {
+    translate: 0 0;
+    opacity: 1;
+  }
+
+  /* Liste verticale propre (pas de puces) */
+  #main-nav ul { 
+    list-style: none; 
+    margin: 0; 
+    padding: 0; 
+    display: grid; 
+    gap: 20px;
+  }
+  #main-nav a {
+    color: #fff;
+    font-size: 1.4rem;
+    text-decoration: none;
+    padding: .5rem 1rem;
+  }
+}
+
+/* ====== PATCH NAV — desktop ====== */
+@media (min-width: 769px) {
+  /* Nav centrée en ligne quand largeur ≥ 769px */
+  #main-nav { 
+    display: block !important; 
+    background: transparent !important;
+    position: static;
+    translate: none;
+    opacity: 1;
+  }
+  #main-nav ul {
+    list-style: none;
+    margin: 0; 
+    padding: 0;
+    display: flex;
+    gap: 36px;          /* espacement comme ta maquette */
+    align-items: center;
+  }
+  #main-nav a {
+    color: var(--color-text-dark) !important;
+    text-decoration: none;
+    padding: .5rem 1rem;
+    font-weight: 700;
+  }
+}
+
