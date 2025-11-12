@@ -715,6 +715,8 @@ footer p {
         background: transparent !important;
         margin-right: auto; 
         margin-left: auto; 
+        align-items: center; /* Alignement vertical */
+        gap: 1rem; /* Espace entre les liens */
     }
 
         #main-nav a { /* Cible les liens A directement (nouvelle structure HTML) */
@@ -819,7 +821,7 @@ footer p {
     /* La règle d'ouverture du menu mobile doit fonctionner */
     .site-header.nav-open .main-nav { 
         translate: 0 0; 
-        display: block !important; 
+        display: block !important; /* Afficher l'overlay */
     }
 
     /* Footer Responsive */
